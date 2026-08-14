@@ -1,0 +1,22 @@
+services:
+  database:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: economia_artificial
+      POSTGRES_USER: economia
+      POSTGRES_PASSWORD: economia_local_only
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./migrations/0001_initial.sql:/docker-entrypoint-initdb.d/0001_initial.sql:ro
+      - ./migrations/0002_autonomy_and_governance.sql:/docker-entrypoint-initdb.d/0002_autonomy_and_governance.sql:ro
+      - ./migrations/0003_operational_platform.sql:/docker-entrypoint-initdb.d/0003_operational_platform.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U economia -d economia_artificial"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  postgres-data:

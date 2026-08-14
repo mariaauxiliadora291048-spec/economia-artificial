@@ -1,0 +1,45 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+.env
+postgres-data/
+.economia-artificial-data/
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Local runtime data
+*.tmp
+# Backup files
+*.backup-observador
